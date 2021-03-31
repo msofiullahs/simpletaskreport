@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "code-tutorial-286518",
+  "private_key_id": "8e307668c3720b1b79e5004cd33007c84e7ba2ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUTxk8G4mUlMpb\n33vKroan+sAnTJzlWHLPRwLl/ycAbwvG0+dp+nRWdJJYrh/lfSpT7AvMGCMR5rd7\nJD1iIgRr1zS+ieobLWnruTCp1/7VTcnZxB1UU73RJJ6YWI229KTDiFSHqOpWkD8Y\nRvaZ6xggVqW+tux+ht2MkbKXBO0vfP6Qtn7laQE0zIxFUyFGUWboL0qL5AvBqFz4\nfRHj+7eaHvVyXQ7IJRD9UBftAHHhMxxWA2wqdGL8hyOQ4Z8r7FK+RbTj2chkfVBO\nIT6U//kSQhzlhnCoey74gzxX6GWO8dc+JFQ6HvBUH/NDH5+d5FsRQKab2SFhvXSk\nmXl78HnLAgMBAAECggEAA61macghBC8gSWDkN+VV72pXQ2Ix7bngtuUC3GMUO32F\nZDuy3Dzaj546VrqSjeUpnIUY0cmzbOk0mXgPkZRYWbgvVZ4j0OKyYqbn3v49Elro\na17if0nIRhxLVmmzsdqlDzgdKHP2w4i2F8sCqFRc98hOOcldWdHMQoUGUZpMq0W7\nebIepkpoa1y8QJH1U55Y0MOqT6KFdytp31Ks0v7CmvbcnS46dKoGCONiVVDWcoD3\nX2pMO79pNU42VhTb6CJ1pwunVK9TAsFJLBKRxUEcow/rGhHR6ysP4e/h0xyDeMCt\nORdZzwDkCOMTu3v9p/vgaX/YZM6szLlrRWZglJ9A6QKBgQDMSJxnuDIVBPxaUzVy\nIzeO2CQzO2CYw1hAgawNKnB6wwN2f60k/dQk6kzv3s5/YOHjSbTz25PuriTnmhW2\nSvsij/LSCaqtVzfZvVwoAwuTLpVRFJ5ZBJ84+xMEiBuAhapKOY53Ce1IFU5eYIVM\namxBqKP5JVdzcpxol4yrlrv5XQKBgQC52tWBw/hEmiCZtynUsqt/qoNH8lT1pDhQ\n90gYJ2nnBnPw/8mmOSXN1z1A1hWgr1sqzzvHOkuWYRCHOJ3pCYeDcHETAXcmESm/\ncwkrZJolRWs7/D3z4XW13zpgnX4ImRa3v1XrT5dryR6th78qt7eusiRVxMrW1Mkk\nLtGSqTWFRwKBgBLweG+1SA9i0vKc3EuksDXyHAkT7DS9h6UTYJwn3x3CjsOhuq+/\nSLfTcSacBZERrl+gKcKiDOkIBCvkwTaRZQ8jQWPvuX8wouDxCWY8Qgp3Oyi1PKkM\nIKbrwCufYs1blxoik+69YN5Z+1YMpM8c3sSHmgwzRhRR/+ZChqwx4WORAoGBAJDl\ncUuIE0i4uO3ehPhUi6wurccrwNz5uQY2o7hhEgmRWFbttLKpHzYJtrGTtqzdyb/o\nbPx4EHIfHpmtpD8ItOPeh+l/XPsKqneeIen4tsyUAHR1xX8bqX+vl323i4j8gV+k\nBkI8fRsFY6t6h6mwLb4/GGDd2h3/KwnQjoc+8IEFAoGBAIW7OgR9h88CwU8+jTwQ\nbYQXte5U0AAxVioiFeXEAKNZDcpb/pc77IzXJomsQzlBnz94//Y/0ZcALAlKGxKD\nF43nbuuTlkDLBmDCHtIyvtA8fy64HQA5YAVmWDIjXNLyZiQQquda8FxLBxXZZSbY\nT23MjCSp3a/461RkOLquKy53\n-----END PRIVATE KEY-----\n",
+  "client_email": "calendar-api@code-tutorial-286518.iam.gserviceaccount.com",
+  "client_id": "111576762788575856935",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/calendar-api%40code-tutorial-286518.iam.gserviceaccount.com"
+}
