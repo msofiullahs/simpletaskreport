@@ -15,6 +15,10 @@ class CreateTaskRequestsTable extends Migration
     {
         Schema::create('task_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('detail')->nullable();
+            $table->bigInteger('reporter_id')->nullable();
+            $table->bigInteger('assignee_id')->nullable();
             $table->timestamps();
         });
     }
