@@ -50,7 +50,7 @@ class TaskRequestDataTable extends DataTable
                     ->orderBy(1)
                     ->buttons(
                         Button::make('create'),
-                        Button::make('export'),
+                        Button::make('export')->buttons(['csv', 'excel']),
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload')

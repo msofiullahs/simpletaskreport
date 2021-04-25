@@ -19,6 +19,7 @@ class CreateTaskRequestsTable extends Migration
             $table->text('detail')->nullable();
             $table->bigInteger('reporter_id')->nullable();
             $table->bigInteger('assignee_id')->nullable();
+            $table->enum('status', ['waiting', 'taken'])->default('waiting');
             $table->timestamps();
         });
     }

@@ -1,11 +1,22 @@
 body {
     font-size: .875rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
 }
 
 .feather {
     width: 16px;
     height: 16px;
-    vertical-align: text-bottom;
+    vertical-align: middle;
+}
+
+.btn .material-icons, .btn .material-icons-outlined{
+    font-size:inherit;
+    vertical-align: middle;
+}
+
+.form-control{
+    font-size: inherit;
 }
 
 /*
@@ -97,4 +108,66 @@ body {
 .form-control-dark:focus {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+table.dataTable tr.weekend, table.dataTable tr.offday{
+    color: #fff;
+    font-weight: 600;
+}
+
+table.dataTable td{
+    vertical-align: middle;
+}
+
+span.weekend, span.offday{
+    padding-left: 23px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+span.weekend{
+    margin-right: 10px;
+}
+
+span.weekend:before, span.offday:before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    left: 0;
+    position: absolute;
+}
+
+span.weekend:before{
+    background-color: #00695c;
+}
+span.offday:before{
+    background-color: #1565c0;
+}
+
+.select2-container--default .select2-selection--single{
+    border-color: #ced4da;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    min-height: 40px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 7px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 0;
+}
+
+.datepicker{
+    padding: .375rem .75rem;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
 }

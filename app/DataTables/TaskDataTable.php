@@ -21,7 +21,41 @@ class TaskDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'task.action');
+            ->setRowClass(function ($item) {
+                return $item->type;
+            })
+            ->setRowAttr([
+                'style' => function($item){
+                    if($item->type == 'weekend'){
+                        return 'background-color: #00695c';
+                    }elseif($item->type == 'offday'){
+                        return 'background-color: #1565c0';
+                    }else{
+                        return '';
+                    }
+                }
+            ])
+            ->editColumn('title', function ($item) {
+                if ($item->type == 'task' && empty($item->title)) {
+                    return 'No Task';
+                }
+                return $item->title;
+            })
+            ->addColumn('reporter', function ($item) {
+                if (!empty($item->reporter_id)) {
+                    return $item->reporter->name;
+                }
+                return '';
+            })
+            ->addColumn('assignee', function ($item) {
+                if (!empty($item->assignee_id)) {
+                    return $item->reportassigneeer->name;
+                }
+                return '';
+            })
+            ->addColumn('action', function($item) {
+                return view('partials.task', compact('item'));
+            });
     }
 
     /**
@@ -47,13 +81,13 @@ class TaskDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('create')->className('btn-sm')->text('New Task'),
+                        Button::make('export')->buttons(['csv', 'excel'])->className('btn-sm'),
+                        Button::make('print')->className('btn-sm'),
+                        Button::make('reset')->className('btn-sm'),
+                        Button::make('reload')->className('btn-sm')
                     );
     }
 
@@ -65,15 +99,16 @@ class TaskDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('reported_at')->title('Date'),
+            Column::make('title')->title('Task'),
+            Column::make('hours'),
+            Column::computed('reporter'),
+            Column::computed('assignee'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(100)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 
