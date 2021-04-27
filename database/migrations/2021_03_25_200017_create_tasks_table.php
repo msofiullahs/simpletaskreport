@@ -22,6 +22,7 @@ class CreateTasksTable extends Migration
             $table->bigInteger('request_id')->nullable();
             $table->bigInteger('reporter_id')->nullable();
             $table->bigInteger('assignee_id')->nullable();
+            $table->enum('priority', ['low', 'mid', 'high'])->default('low');
             $table->enum('type', ['task', 'weekend', 'offday'])->default('task');
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Carbon\Carbon;
 
 class TaskRequestDataTable extends DataTable
 {
@@ -21,7 +22,24 @@ class TaskRequestDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'taskrequest.action');
+            ->editColumn('reporter', function ($item) {
+                if (!empty($item->reporter_id)) {
+                    return $item->reporter->name;
+                }
+                return '';
+            })
+            ->editColumn('assignee', function ($item) {
+                if (!empty($item->assignee_id)) {
+                    return $item->assignee->name;
+                }
+                return '';
+            })
+            ->editColumn('created_at', function ($item) {
+                return Carbon::parse($item->created_at)->format('Y-m-d H:i:s');
+            })
+            ->addColumn('action', function($item) {
+                return view('partials.request', compact('item'));
+            });
     }
 
     /**
@@ -47,13 +65,13 @@ class TaskRequestDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export')->buttons(['csv', 'excel']),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('create')->className('btn-sm')->text('New Request'),
+                        Button::make('export')->buttons(['csv', 'excel'])->className('btn-sm'),
+                        Button::make('print')->className('btn-sm'),
+                        Button::make('reset')->className('btn-sm'),
+                        Button::make('reload')->className('btn-sm')
                     );
     }
 
@@ -65,15 +83,18 @@ class TaskRequestDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id'),
+            Column::make('title'),
+            Column::make('reporter_id')->title('Requested by'),
+            Column::make('assignee_id')->title('Assigned to'),
+            Column::make('priority')->width(50),
+            Column::make('status')->width(60),
+            Column::make('created_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(130)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

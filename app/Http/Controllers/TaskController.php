@@ -51,12 +51,13 @@ class TaskController extends Controller
         $task->hours = $request->hours;
         $task->reporter_id = $request->reporter;
         $task->assignee_id = $request->assignee;
+        $task->priority = $request->priority;
         $task->type = $request->type;
-        $task->save();
+
         if ($task->save()) {
-            return redirect()->route('task.index')->with('message', 'you have successfully add new task');
+            return redirect()->route('task.index')->with('message', 'you have successfully added new task');
         }else{
-            return redirect()->route('task.index')->with('message', 'sorry, you have unsuccessfully add new task');
+            return redirect()->route('task.index')->with('message', 'sorry, you have unsuccessfully added new task');
         }
     }
 
@@ -94,7 +95,20 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $task->reported_at = $request->reported_at;
+        $task->title = $request->title;
+        $task->detail = $request->detail;
+        $task->hours = $request->hours;
+        $task->reporter_id = $request->reporter;
+        $task->assignee_id = $request->assignee;
+        $task->type = $request->type;
+
+        if ($task->save()) {
+            return redirect()->route('task.index')->with('message', 'you have successfully updated the task');
+        }else{
+            return redirect()->route('task.index')->with('message', 'sorry, you have unsuccessfully updated the task');
+        }
     }
 
     /**
@@ -105,6 +119,11 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        if ($task->delete()) {
+            return redirect()->route('task.index')->with('message', 'you have successfully deleted the task');
+        }else{
+            return redirect()->route('task.index')->with('message', 'sorry, you have unsuccessfully deleted the task');
+        }
     }
 }

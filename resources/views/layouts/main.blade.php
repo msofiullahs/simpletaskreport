@@ -43,6 +43,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{active(['taskrequest.index', 'taskrequest.*'])}}" aria-current="page" href="{{route('taskrequest.index')}}">
+                                <span data-feather="help-circle"></span>
+                                Task Request
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{active('calendar')}}" aria-current="page" href="{{route('calendar')}}">
                                 <span data-feather="calendar"></span>
                                 Calendar
@@ -52,6 +58,12 @@
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @if (session('message'))
+                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                        {{session('status')}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h2>@yield('title')</h2>
                 </div>

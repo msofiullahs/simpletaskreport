@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Str;
 
 class TaskDataTable extends DataTable
 {
@@ -41,6 +42,12 @@ class TaskDataTable extends DataTable
                 }
                 return $item->title;
             })
+            ->editColumn('priority', function ($item) {
+                if ($item->type == 'task') {
+                    return Str::title($item->priority);
+                }
+                return null;
+            })
             ->addColumn('reporter', function ($item) {
                 if (!empty($item->reporter_id)) {
                     return $item->reporter->name;
@@ -49,7 +56,7 @@ class TaskDataTable extends DataTable
             })
             ->addColumn('assignee', function ($item) {
                 if (!empty($item->assignee_id)) {
-                    return $item->reportassigneeer->name;
+                    return $item->assignee->name;
                 }
                 return '';
             })
@@ -101,9 +108,10 @@ class TaskDataTable extends DataTable
         return [
             Column::make('reported_at')->title('Date'),
             Column::make('title')->title('Task'),
-            Column::make('hours'),
+            Column::make('hours')->width(50),
             Column::computed('reporter'),
             Column::computed('assignee'),
+            Column::make('priority')->width(50),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

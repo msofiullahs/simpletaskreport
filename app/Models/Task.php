@@ -10,11 +10,11 @@ class Task extends Model
     use HasFactory;
 
     public function reporter(){
-        return $this->hasOne(User::class, 'id', 'reporter_id');
+        return $this->belongsTo(User::class, 'reporter_id', 'id');
     }
 
     public function assignee(){
-        return $this->hasOne(User::class, 'id', 'assignee_id');
+        return $this->belongsTo(User::class, 'assignee_id', 'id');
     }
 
     public function asked(){

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TaskRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('task', TaskController::class);
+
+Route::get('taskrequest/{taskrequest}/take', [TaskRequestController::class, 'take'])->name('taskrequest.take');
+Route::resource('taskrequest', TaskRequestController::class);
 
 Route::get('calendar', function () {
     return view('calendar');
