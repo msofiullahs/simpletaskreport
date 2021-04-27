@@ -40,7 +40,7 @@ class TaskDataTable extends DataTable
                 if ($item->type == 'task' && empty($item->title)) {
                     return 'No Task';
                 }
-                return $item->title;
+                return Str::limit($item->title, 35);
             })
             ->editColumn('priority', function ($item) {
                 if ($item->type == 'task') {
@@ -50,13 +50,13 @@ class TaskDataTable extends DataTable
             })
             ->addColumn('reporter', function ($item) {
                 if (!empty($item->reporter_id)) {
-                    return $item->reporter->name;
+                    return Str::limit($item->reporter->name, 25);
                 }
                 return '';
             })
             ->addColumn('assignee', function ($item) {
                 if (!empty($item->assignee_id)) {
-                    return $item->assignee->name;
+                    return Str::limit($item->assignee->name, 25);
                 }
                 return '';
             })
@@ -106,7 +106,7 @@ class TaskDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('reported_at')->title('Date'),
+            Column::make('reported_at')->title('Date')->width(80),
             Column::make('title')->title('Task'),
             Column::make('hours')->width(50),
             Column::computed('reporter'),
@@ -115,7 +115,7 @@ class TaskDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(100)
+                  ->width(120)
                   ->addClass('text-center'),
         ];
     }

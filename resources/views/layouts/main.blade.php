@@ -19,11 +19,32 @@
 
 </head>
 <body>
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-center" href="#">{{config('app.name', 'Simple Task Report')}}</a>
-        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <header class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <div class="container-fluid px-0">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-center" href="#">{{config('app.name', 'Simple Task Report')}}</a>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav px-3 usermenu">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{Auth::user()->name}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">Sign out</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </header>
     <div class="container-fluid">
         <div class="row">
@@ -54,13 +75,21 @@
                                 Calendar
                             </a>
                         </li>
+                        @if (Auth::user()->role == 'superadmin')
+                            <li class="nav-item">
+                                <a class="nav-link {{active('calendar')}}" aria-current="page" href="{{route('calendar')}}">
+                                    <span data-feather="users"></span>
+                                    Users
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 @if (session('message'))
-                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                        {{session('status')}}
+                    <div class="alert alert-secondary mt-3 alert-dismissible fade show" role="alert">
+                        {{session('message')}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif

@@ -1,4 +1,4 @@
-@if ($item->status == 'waiting')
+@if ($item->status == 'waiting' && Auth::user()->id == $item->reporter_id)
     <a href="{{route('taskrequest.edit', ['taskrequest'=>$item->id])}}" class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit">
         <span class="material-icons-outlined">create</span>
     </a>

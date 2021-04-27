@@ -23,4 +23,8 @@ class Task extends Model
         }
         return null;
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'task_id', 'id')->orderBy('created_at', 'DESC');
+    }
 }

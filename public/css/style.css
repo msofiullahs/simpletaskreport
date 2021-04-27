@@ -171,3 +171,16 @@ span.offday:before{
     height: 2.5rem;
     font-size: 0.85rem;
 }
+
+.dropdown-menu{
+    font-size: inherit;
+}
+
+@media screen and (max-width:767px) {
+    .usermenu{
+        width: 100%;
+    }
+    .sidebar{
+        padding-top: 85px;
+    }
+}

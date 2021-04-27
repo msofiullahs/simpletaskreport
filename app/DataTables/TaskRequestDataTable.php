@@ -9,6 +9,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class TaskRequestDataTable extends DataTable
 {
@@ -22,15 +23,18 @@ class TaskRequestDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('reporter', function ($item) {
+            ->editColumn('title', function ($item) {
+                return Str::limit($item->title, 35);
+            })
+            ->addColumn('reporter', function ($item) {
                 if (!empty($item->reporter_id)) {
-                    return $item->reporter->name;
+                    return Str::limit($item->reporter->name, 25);
                 }
                 return '';
             })
-            ->editColumn('assignee', function ($item) {
+            ->addColumn('assignee', function ($item) {
                 if (!empty($item->assignee_id)) {
-                    return $item->assignee->name;
+                    return Str::limit($item->assignee->name, 25);
                 }
                 return '';
             })
@@ -85,8 +89,8 @@ class TaskRequestDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('title'),
-            Column::make('reporter_id')->title('Requested by'),
-            Column::make('assignee_id')->title('Assigned to'),
+            Column::computed('reporter')->title('Requested by'),
+            Column::computed('assignee')->title('Assigned to'),
             Column::make('priority')->width(50),
             Column::make('status')->width(60),
             Column::make('created_at'),

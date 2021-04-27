@@ -8,6 +8,7 @@ use App\Models\TaskRequest;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class TaskRequestController extends Controller
 {
@@ -40,11 +41,11 @@ class TaskRequestController extends Controller
      */
     public function store(Request $request)
     {
-        // $auth = Auth::user();
+        $auth = Auth::user();
         $taskReq = new TaskRequest();
         $taskReq->title = $request->title;
         $taskReq->detail = $request->detail;
-        // $taskReq->reporter_id = $auth->id;
+        $taskReq->reporter_id = $auth->id;
         $taskReq->assignee_id = $request->assignee;
         $taskReq->priority = $request->priority;
         $taskReq->status = 'waiting';
@@ -90,11 +91,11 @@ class TaskRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $auth = Auth::user();
+        $auth = Auth::user();
         $taskReq = TaskRequest::find($id);
         $taskReq->title = $request->title;
         $taskReq->detail = $request->detail;
-        // $taskReq->reporter_id = $auth->id;
+        $taskReq->reporter_id = $auth->id;
         $taskReq->assignee_id = $request->assignee;
         $taskReq->priority = $request->priority;
 
@@ -126,7 +127,7 @@ class TaskRequestController extends Controller
         $taskReq = TaskRequest::find($id);
 
         $task = new Task();
-        $task->reported_at = Carbon::now()->format('Y-m-d H:i:s');
+        $task->reported_at = Carbon::now()->format('Y-m-d');
         $task->title = $taskReq->title;
         $task->detail = $taskReq->detail;
         $task->request_id = $taskReq->id;

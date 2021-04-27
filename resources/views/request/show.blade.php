@@ -35,7 +35,7 @@
 
             </div>
             <div class="card-footer">
-                @if ($task->status == 'waiting')
+                @if ($task->status == 'waiting' && Auth::user()->id == $task->assignee_id)
                     <a href="{{route('taskrequest.take', ['taskrequest'=>$task->id])}}" class="btn btn-outline-success btn-sm">
                         Take this request
                     </a>

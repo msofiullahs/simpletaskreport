@@ -20,6 +20,21 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="showComment" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Comments</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('script')
@@ -29,6 +44,15 @@
 $(document).ready(function () {
     $("#{{$dataTable->getTableAttribute('id')}}").on('draw.dt', function () {
         $('[data-bs-toggle="tooltip"]').tooltip();
+    });
+    $('#showComment').on('show.bs.modal', function(e){
+        var button = e.relatedTarget;
+        var url = button.getAttribute('data-bs-url');
+        $.get(url).done(function(data){
+            var body = $('#showComment').find('.modal-body');
+            body.html('');
+            body.html(data.html);
+        })
     });
 })
 </script>
