@@ -2,12 +2,21 @@
 
 @section('title'){{'Daily Tasks'}}@endsection
 
+@section('pagestyle')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" />
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col">
         <div class="card">
             <div class="card-body">
-
+                <form method="GET" action="{{route('task.index')}}">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control datepicker" name="month" id="monthInput" placeholder="Filter by Month" value="{{request()->month}}">
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get</button>
+                    </div>
+                </form>
                 <div class="table-responsive table-centered">
                     {{$dataTable->table()}}
                 </div>
@@ -39,6 +48,7 @@
 
 @section('script')
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
 {{$dataTable->scripts()}}
 <script type="text/javascript">
 $(document).ready(function () {
@@ -53,6 +63,11 @@ $(document).ready(function () {
             body.html('');
             body.html(data.html);
         })
+    });
+    $(".datepicker").datepicker( {
+        format: "mm-yyyy",
+        startView: "months",
+        minViewMode: "months"
     });
 })
 </script>

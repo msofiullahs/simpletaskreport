@@ -16,9 +16,9 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(TaskDataTable $dataTable)
+    public function index(TaskDataTable $dataTable, Request $request)
     {
-        return $dataTable->render('task.index');
+        return $dataTable->with('request',$request)->render('task.index');
     }
 
     /**

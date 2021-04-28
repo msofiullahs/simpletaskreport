@@ -73,6 +73,13 @@ class TaskDataTable extends DataTable
      */
     public function query(Task $model)
     {
+        // dd($this->request);
+        if($this->request->has('month')){
+            $req = $this->request->month;
+            $month = explode('-',$req)[0];
+            $year = explode('-',$req)[1];
+            return $model->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
+        }
         return $model->newQuery();
     }
 
