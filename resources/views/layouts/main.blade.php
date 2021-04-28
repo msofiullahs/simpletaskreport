@@ -18,7 +18,7 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <div class="container-fluid px-0">
             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 text-center" href="#">{{config('app.name', 'Simple Task Report')}}</a>
@@ -31,7 +31,7 @@
                     {{Auth::user()->name}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li><a class="dropdown-item {{active('editpass')}}" href="{{route('editpass')}}">Change Password</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -77,7 +77,7 @@
                         </li>
                         @if (Auth::user()->role == 'superadmin')
                             <li class="nav-item">
-                                <a class="nav-link {{active('calendar')}}" aria-current="page" href="{{route('calendar')}}">
+                                <a class="nav-link {{active(['user.index', 'user.*'])}}" aria-current="page" href="{{route('user.index')}}">
                                     <span data-feather="users"></span>
                                     Users
                                 </a>
@@ -100,6 +100,11 @@
             </main>
         </div>
     </div>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-end">
+            <span class="text-muted">Copyright {{date('Y')}} <a href="https://sofiullah.my.id/" target="_blank">Muhammad Sofiullah</a></span>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

@@ -176,6 +176,14 @@ span.offday:before{
     font-size: inherit;
 }
 
+.form-control:focus, .btn:focus{
+    box-shadow: none;
+}
+
+.invalid-feedback{
+    display: block;
+}
+
 @media screen and (max-width:767px) {
     .usermenu{
         width: 100%;

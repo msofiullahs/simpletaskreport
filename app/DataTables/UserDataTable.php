@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Carbon\Carbon;
 
 class UserDataTable extends DataTable
 {
@@ -21,6 +22,9 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('created_at', function($item){
+                return !empty($item->created_at) ? Carbon::parse($item->created_at)->format('j F Y H:i:s') : null;
+            })
             ->addColumn('action', 'user.action');
     }
 
@@ -49,11 +53,11 @@ class UserDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
+                        Button::make('create')->className('btn-sm')->text('New User'),
+                        Button::make('export')->buttons(['csv', 'excel'])->className('btn-sm'),
+                        Button::make('print')->className('btn-sm'),
+                        Button::make('reset')->className('btn-sm'),
+                        Button::make('reload')->className('btn-sm')
                     );
     }
 
@@ -65,15 +69,16 @@ class UserDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('name'),
+            Column::make('email'),
+            Column::make('role'),
             Column::make('created_at'),
-            Column::make('updated_at'),
+            // Column::computed('action')
+            //       ->exportable(false)
+            //       ->printable(false)
+            //       ->width(60)
+            //       ->addClass('text-center'),
         ];
     }
 

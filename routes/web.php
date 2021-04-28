@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskRequestController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +39,9 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('calendar', function () {
         return view('calendar');
     })->name('calendar');
+
+    Route::get('password', [UserController::class, 'editPassword'])->name('editpass');
+    Route::post('password', [UserController::class, 'updatePassword'])->name('updatepass');
+    Route::resource('user', UserController::class)->except(['show', 'edit', 'update']);
 
 });
