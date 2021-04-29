@@ -8,8 +8,10 @@ and
 <strong>Bootstrap 5</strong>
 </p>
 
-Build with
-{: .text-center}
+<p>
+My important paragraph.
+{: .alert .alert-info}
+</p>
 
 ## About SimpleTaskReport
 
