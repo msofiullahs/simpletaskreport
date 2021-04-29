@@ -1,6 +1,6 @@
-<p align="center"><a href="https://sofiullah.my.id/" target="_blank"><img src="https://task.sofiullah.my.id/public/favicon/apple-touch-icon.png" width="100"></a></p>
+<p align="center" style="text-align: center;"><a href="https://sofiullah.my.id/" target="_blank"><img src="https://task.sofiullah.my.id/public/favicon/apple-touch-icon.png" width="100"></a></p>
 
-<p align="center">Build with Laravel 8</p>
+<p align="center" style="text-align: center;">Build with Laravel 8</p>
 
 ## About SimpleTaskReport
 
@@ -39,7 +39,7 @@ $ php artisan migrate --seed
 ## Calendar Setting
 
 - Go to google calendar iframe generator [here](https://calendar.google.com/calendar/embedhelper)
-- Replace the iframe embed code on ```resources > views > calendar.blade.php```
+- Replace the iframe embed code on [resources > views > calendar.blade.php](/resources/views/calendar.blade.php)
 
 
 ## License
