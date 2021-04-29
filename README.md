@@ -1,20 +1,10 @@
 <p align="center" style="text-align: center;" dir="center"><a href="https://sofiullah.my.id/" target="_blank"><img src="https://task.sofiullah.my.id/public/favicon/apple-touch-icon.png" width="100"></a></p>
 
 <p align="center" style="text-align: center;" dir="center">
-Build with 
-<strong>Laravel 8</strong>
-{: .gitlab-orange}
-and 
-<strong>Bootstrap 5</strong>
-</p>
-
-<p>
-My important paragraph.
-{: .alert .alert-info}
+Build with <strong style="color:#ff2d20">Laravel 8</strong> and <strong style="color:#7C11F8">Bootstrap 5</strong>
 </p>
 
 ## About SimpleTaskReport
-
 SimpleTaskReport is a **free** web application that supports you especially for remote workers to make a daily task report and manage task request. You can invite your co-workers to join your SimpleTaskReport.
 
 ### Requirements
