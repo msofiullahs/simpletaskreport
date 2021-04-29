@@ -42,11 +42,11 @@ $ cp .env.example .env
 
 Set your database and SMTP email on ```.env``` file
 
-```nginx
+```bash
 $ php artisan key:generate
 ```
 
-```nginx
+```bash
 $ php artisan migrate --seed
 ```
 
