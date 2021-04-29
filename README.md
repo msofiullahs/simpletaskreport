@@ -1,6 +1,6 @@
-<p align="center" style="text-align: center;" dir="center"><a href="https://sofiullah.my.id/" target="_blank"><img src="https://task.sofiullah.my.id/public/favicon/apple-touch-icon.png" width="100"></a></p>
+<p align="center" style="text-align:center;" dir="center"><a href="https://sofiullah.my.id/" target="_blank"><img src="https://task.sofiullah.my.id/public/favicon/apple-touch-icon.png" width="100"></a></p>
 
-<p align="center" style="text-align: center;" dir="center">
+<p align="center" style="text-align:center;" dir="center" class="text-center">
 Build with <strong style="color:#ff2d20">Laravel 8</strong> and <strong style="color:#7C11F8">Bootstrap 5</strong>
 </p>
 
@@ -42,11 +42,11 @@ $ cp .env.example .env
 
 Set your database and SMTP email on ```.env``` file
 
-```nginx
+```bash
 $ php artisan key:generate
 ```
 
-```nginx
+```bash
 $ php artisan migrate --seed
 ```
 
