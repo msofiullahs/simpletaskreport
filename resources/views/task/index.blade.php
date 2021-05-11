@@ -11,12 +11,12 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <form method="GET" action="{{route('task.index')}}">
+                {{-- <form method="GET" action="{{route('task.index')}}"> --}}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control datepicker" name="month" id="monthInput" placeholder="Filter by Month" value="{{request()->month}}">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Get</button>
+                        <button class="btn btn-outline-secondary" type="button" id="filterMonth">Get</button>
                     </div>
-                </form>
+                {{-- </form> --}}
                 <div class="table-responsive table-centered">
                     {{$dataTable->table()}}
                 </div>
@@ -68,6 +68,12 @@ $(document).ready(function () {
         format: "mm-yyyy",
         startView: "months",
         minViewMode: "months"
+    });
+    $('#filterMonth').click(function () {
+        var param = $('#monthInput').val();
+        table.column(0)
+        .search( param )
+        .draw();
     });
 })
 </script>

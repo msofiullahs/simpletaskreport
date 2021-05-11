@@ -21,10 +21,19 @@ class TaskDataTable extends DataTable
      */
     public function dataTable($query)
     {
+        $request = $this->request;
         return datatables()
             ->eloquent($query)
             ->setRowClass(function ($item) {
                 return $item->type;
+            })
+            ->filterColumn('reported_at', function($query, $keywords) use($request){
+                if($request->has('month')){
+                    $req = $this->request->month;
+                    $month = explode('-',$req)[0];
+                    $year = explode('-',$req)[1];
+                    return $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
+                }
             })
             ->setRowAttr([
                 'style' => function($item){
@@ -75,12 +84,12 @@ class TaskDataTable extends DataTable
     public function query(Task $model)
     {
         // dd($this->request);
-        if($this->request->has('month')){
-            $req = $this->request->month;
-            $month = explode('-',$req)[0];
-            $year = explode('-',$req)[1];
-            return $model->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
-        }
+        // if($this->request->has('month')){
+        //     $req = $this->request->month;
+        //     $month = explode('-',$req)[0];
+        //     $year = explode('-',$req)[1];
+        //     return $model->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
+        // }
         return $model->newQuery();
     }
 
