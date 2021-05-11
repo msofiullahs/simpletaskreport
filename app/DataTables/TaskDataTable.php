@@ -80,13 +80,6 @@ class TaskDataTable extends DataTable
      */
     public function query(Task $model)
     {
-        // dd($this->request);
-        // if($this->request->has('month')){
-        //     $req = $this->request->month;
-        //     $month = explode('-',$req)[0];
-        //     $year = explode('-',$req)[1];
-        //     return $model->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
-        // }
         return $model->newQuery();
     }
 
@@ -123,6 +116,7 @@ class TaskDataTable extends DataTable
             Column::make('reported_at')->title('Date')->width(80),
             Column::make('title')->title('Task'),
             Column::make('hours')->width(50),
+            Column::make('type')->visible(false),
             Column::computed('reporter'),
             Column::computed('assignee'),
             Column::make('priority')->width(50),
