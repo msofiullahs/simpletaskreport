@@ -10,7 +10,18 @@
             body {
                 -webkit-print-color-adjust:exact;
                 margin: 20px;
+                font-size: .875rem;
+                font-family: 'Nunito', sans-serif;
                 font-weight: 300;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                border: 1px solid #333;
+            }
+
+            table tr th, table tr td{
+                padding: 3px;
             }
             tr.weekend {
                 background: #00695c !important;
