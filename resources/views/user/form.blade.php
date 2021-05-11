@@ -14,6 +14,9 @@
 
                 <form method="POST" action="{{ isset($user) ? route('user.update', ['user'=>$user->id]) : route('user.store') }}">
                     @csrf
+                    @isset($task)
+                        @method('PUT')
+                    @endisset
                     <div class="row align-items-center mb-3">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">

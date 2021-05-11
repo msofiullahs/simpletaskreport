@@ -14,6 +14,9 @@
 
                 <form method="POST" action="{{ isset($task) ? route('taskrequest.update', ['taskrequest'=>$task->id]) : route('taskrequest.store') }}">
                     @csrf
+                    @isset($task)
+                        @method('PUT')
+                    @endisset
                     <div class="row align-items-center mb-3">
                         <label for="title" class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
