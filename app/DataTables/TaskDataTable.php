@@ -29,7 +29,7 @@ class TaskDataTable extends DataTable
             })
             ->filterColumn('reported_at', function($query, $keywords) use($request){
                 if($request->has('month')){
-                    $req = $this->request->month;
+                    $req = $request->month;
                     $month = explode('-',$req)[0];
                     $year = explode('-',$req)[1];
                     $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
