@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
     $('#filterMonth').click(function () {
         var param = $('#monthInput').val();
-        window.LaravelDataTables.column(0)
+        LaravelDataTables.column(0)
         .search( param )
         .draw();
     });
