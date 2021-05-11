@@ -21,19 +21,18 @@ class TaskDataTable extends DataTable
      */
     public function dataTable($query)
     {
-        $request = $this->request;
         return datatables()
             ->eloquent($query)
             ->setRowClass(function ($item) {
                 return $item->type;
             })
-            ->filterColumn('reported_at', function($query, $keywords) use($request){
-                if($request->has('month')){
-                    $req = $request->month;
+            ->filterColumn('reported_at', function($query, $keywords){
+                // if($request->has('month')){
+                    $req = $keywords;
                     $month = explode('-',$req)[0];
                     $year = explode('-',$req)[1];
                     $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
-                }
+                // }
             })
             ->setRowAttr([
                 'style' => function($item){
