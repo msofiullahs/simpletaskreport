@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
     $('#filterMonth').click(function () {
         var param = $('#monthInput').val();
-        LaravelDataTables.column(0)
+        LaravelDataTables["task-table"].column(0)
         .search( param )
         .draw();
     });
