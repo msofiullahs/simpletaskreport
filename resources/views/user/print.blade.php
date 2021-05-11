@@ -69,7 +69,7 @@
                 <tr class="{{$row['Type']}}">
                     @if ($row['Type'] == 'weekend')
                         <td colspan="6">{!! $row['Date'] !!}</td>
-                    @if ($row['Type'] == 'offday')
+                    @elseif ($row['Type'] == 'offday')
                         <td>{!! $row['Date'] !!}</td>
                         <td colspan="5">{!! $row['Task'] !!}</td>
                     @else
