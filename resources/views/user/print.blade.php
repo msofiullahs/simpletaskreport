@@ -11,23 +11,23 @@
         <style>
             body {margin: 20px}
             tr.weekend {
-                background-color: #00695c !important;
+                background: #00695c !important;
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
             tr.offday {
-                background-color: #1565c0 !important;
+                background: #1565c0 !important;
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
-            @media print {
+            @media print, screen {
                 tr.weekend {
-                    background-color: #00695c !important;
+                    background: #00695c !important;
                     color: #fff !important;
                     -webkit-print-color-adjust: exact;
                 }
                 tr.offday {
-                    background-color: #1565c0 !important;
+                    background: #1565c0 !important;
                     color: #fff !important;
                     -webkit-print-color-adjust: exact;
                 }
