@@ -71,7 +71,7 @@ $(document).ready(function () {
     });
     $('#filterMonth').click(function () {
         var param = $('#monthInput').val();
-        table.column(0)
+        $("#{{$dataTable->getTableAttribute('id')}}").column(0)
         .search( param )
         .draw();
     });
