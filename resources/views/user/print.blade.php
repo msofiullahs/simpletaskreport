@@ -10,6 +10,28 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <style>
             body {margin: 20px}
+            tr.weekend {
+                background-color: #00695c !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+            }
+            tr.offday {
+                background-color: #00695c !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+            }
+            @media print {
+                tr.weekend {
+                    background-color: #00695c !important;
+                    color: #fff !important;
+                    -webkit-print-color-adjust: exact;
+                }
+                tr.offday {
+                    background-color: #00695c !important;
+                    color: #fff !important;
+                    -webkit-print-color-adjust: exact;
+                }
+            }
         </style>
     </head>
     <body>
@@ -24,18 +46,10 @@
                         @endforeach
                     </tr>
                 @endif
-                <tr>
+                <tr class="{{$row[Type]}}">
                     @foreach($row as $key => $value)
                         @if ($key != 'Type')
-                            @if ($row['Type'] == 'weekend')
-                                <td style="background-color: #00695c; color: #fff;">
-                            @elseif ($row['Type'] == 'offday')
-                                <td style="background-color: #1565c0; color: #fff;">
-                            @else
-                                <td>
-                            @endif
-                                {!! $value !!}
-                            </td>
+                           <td>{!! $value !!}</td>
                         @endif
                     @endforeach
                 </tr>
