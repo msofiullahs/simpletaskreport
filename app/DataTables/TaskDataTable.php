@@ -27,12 +27,10 @@ class TaskDataTable extends DataTable
                 return $item->type;
             })
             ->filterColumn('reported_at', function($query, $keywords){
-                // if($request->has('month')){
-                    $req = $keywords;
-                    $month = explode('-',$req)[0];
-                    $year = explode('-',$req)[1];
-                    $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
-                // }
+                $req = $keywords;
+                $month = explode('-',$req)[0];
+                $year = explode('-',$req)[1];
+                $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
             })
             ->setRowAttr([
                 'style' => function($item){
