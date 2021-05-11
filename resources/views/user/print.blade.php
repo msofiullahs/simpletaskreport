@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <style>
+        <style type="text/css">
             body {
                 -webkit-print-color-adjust:exact;
                 margin: 20px
@@ -24,7 +24,6 @@
                 -webkit-print-color-adjust: exact;
             }
             @media print {
-
                 body {
                     background: transparent;
                     -webkit-print-color-adjust:exact;
