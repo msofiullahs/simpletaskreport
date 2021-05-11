@@ -13,9 +13,6 @@
         </style>
     </head>
     <body>
-        @php
-            dd($data);
-        @endphp
         <table class="table table-bordered table-condensed table-striped">
             @foreach($data as $row)
                 @if ($loop->first)
@@ -25,9 +22,9 @@
                         @endforeach
                     </tr>
                 @endif
-                @if ($row['type'] == 'weekend')
+                @if ($row['Type'] == 'weekend')
                     <tr style="background-color: #00695c">
-                @elseif ($row['type'] == 'offday')
+                @elseif ($row['Type'] == 'offday')
                     <tr style="background-color: #1565c0">
                 @else
                     <tr>
