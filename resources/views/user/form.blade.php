@@ -41,6 +41,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="send_email">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Send email?
+                        </label>
+                    </div>
                     <hr />
                     <button type="submit" class="btn btn-outline-success">Submit</button>
                     <a href="{{route('user.index')}}" class="btn btn-outline-secondary">Cancel</a>
