@@ -32,7 +32,7 @@ class TaskDataTable extends DataTable
                     $req = $this->request->month;
                     $month = explode('-',$req)[0];
                     $year = explode('-',$req)[1];
-                    return $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
+                    $query->whereMonth('reported_at', $month)->whereYear('reported_at', $year);
                 }
             })
             ->setRowAttr([
