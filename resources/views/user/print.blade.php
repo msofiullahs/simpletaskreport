@@ -18,22 +18,26 @@
                 @if ($loop->first)
                     <tr>
                         @foreach($row as $key => $value)
+                            @if ($key != 'Type')
                             <th>{!! $key !!}</th>
+                            @endif
                         @endforeach
                     </tr>
                 @endif
                 @if ($row['Type'] == 'weekend')
-                    <tr style="background-color: #00695c">
+                    <tr style="background-color: #00695c; color: #fff;">
                 @elseif ($row['Type'] == 'offday')
-                    <tr style="background-color: #1565c0">
+                    <tr style="background-color: #1565c0; color: #fff;">
                 @else
                     <tr>
                 @endif
                     @foreach($row as $key => $value)
-                        @if(is_string($value) || is_numeric($value))
-                            <td>{!! $value !!}</td>
-                        @else
-                            <td></td>
+                        @if ($key != 'Type')
+                            @if(is_string($value) || is_numeric($value))
+                                <td>{!! $value !!}</td>
+                            @else
+                                <td></td>
+                            @endif
                         @endif
                     @endforeach
                 </tr>
