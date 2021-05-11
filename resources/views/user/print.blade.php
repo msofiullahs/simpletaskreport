@@ -5,13 +5,12 @@
         <meta charset="UTF-8">
         <meta name=description content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;700&family=Material+Icons+Outlined&display=swap" rel="stylesheet">
         <style type="text/css">
             body {
                 -webkit-print-color-adjust:exact;
-                margin: 20px
+                margin: 20px;
+                font-weight: 300;
             }
             tr.weekend {
                 background: #00695c !important;
@@ -23,6 +22,8 @@
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
+        </style>
+        <style type="text/css" media="print">
             @media print {
                 body {
                     background: transparent;
