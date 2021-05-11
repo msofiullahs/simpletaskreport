@@ -16,7 +16,7 @@
                 -webkit-print-color-adjust: exact;
             }
             tr.offday {
-                background-color: #00695c !important;
+                background-color: #1565c0 !important;
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
@@ -27,7 +27,7 @@
                     -webkit-print-color-adjust: exact;
                 }
                 tr.offday {
-                    background-color: #00695c !important;
+                    background-color: #1565c0 !important;
                     color: #fff !important;
                     -webkit-print-color-adjust: exact;
                 }
