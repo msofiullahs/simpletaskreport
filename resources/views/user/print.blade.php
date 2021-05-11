@@ -23,7 +23,12 @@
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
-            @media print, screen {
+            @media print {
+
+                body {
+                    background: transparent;
+                    -webkit-print-color-adjust:exact;
+                }
                 tr.weekend {
                     background: #00695c !important;
                     color: #fff !important;
