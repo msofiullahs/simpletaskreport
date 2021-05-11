@@ -13,9 +13,6 @@
         </style>
     </head>
     <body>
-       @php
-           dd($keywords);
-       @endphp
         <table class="table table-bordered table-condensed table-striped">
             @foreach($data as $row)
                 @if ($loop->first)
@@ -25,7 +22,13 @@
                         @endforeach
                     </tr>
                 @endif
-                <tr>
+                @if ($row->type == 'weekend')
+                    <tr style="background-color: #00695c">
+                @elseif ($row->type == 'offday')
+                    <tr style="background-color: #1565c0">
+                @else
+                    <tr>
+                @endif
                     @foreach($row as $key => $value)
                         @if(is_string($value) || is_numeric($value))
                             <td>{!! $value !!}</td>
