@@ -46,7 +46,7 @@
                         @endforeach
                     </tr>
                 @endif
-                <tr class="{{$row[Type]}}">
+                <tr class="{{$row['Type']}}">
                     @foreach($row as $key => $value)
                         @if ($key != 'Type')
                            <td>{!! $value !!}</td>
