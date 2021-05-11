@@ -22,6 +22,7 @@
 
             table tr th, table tr td{
                 padding: 3px;
+                border: 1px solid #333;
             }
             tr.weekend {
                 background: #00695c !important;
