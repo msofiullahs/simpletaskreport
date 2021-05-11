@@ -72,8 +72,8 @@ $(document).ready(function () {
     $('#filterMonth').click(function () {
         var param = $('#monthInput').val();
         LaravelDataTables["task-table"].column(0)
-        .search( param ? param : '', false, false )
-        .draw();
+        .search( param ? param : '', false, false );
+        LaravelDataTables["task-table"].table().draw();
     });
 })
 </script>
