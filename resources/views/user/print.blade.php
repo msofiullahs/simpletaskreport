@@ -24,20 +24,18 @@
                         @endforeach
                     </tr>
                 @endif
-                @if ($row['Type'] == 'weekend')
-                    <tr style="background-color: #00695c; color: #fff;">
-                @elseif ($row['Type'] == 'offday')
-                    <tr style="background-color: #1565c0; color: #fff;">
-                @else
-                    <tr>
-                @endif
+                <tr>
                     @foreach($row as $key => $value)
                         @if ($key != 'Type')
-                            @if(is_string($value) || is_numeric($value))
-                                <td>{!! $value !!}</td>
+                            @if ($row['Type'] == 'weekend')
+                                <td style="background-color: #00695c; color: #fff;">
+                            @elseif ($row['Type'] == 'offday')
+                                <td style="background-color: #1565c0; color: #fff;">
                             @else
-                                <td></td>
+                                <td>
                             @endif
+                                {!! $value !!}
+                            </td>
                         @endif
                     @endforeach
                 </tr>
