@@ -41,11 +41,16 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="send_email">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Send email?
-                        </label>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="send_email">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Send email?
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <hr />
                     <button type="submit" class="btn btn-outline-success">Submit</button>

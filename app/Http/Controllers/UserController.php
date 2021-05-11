@@ -54,9 +54,11 @@ class UserController extends Controller
         ]);
 
         if($user){
-            $this->broker()->sendResetLink(
-                $request->only('email')
-            );
+            if (isset($request->send_email)) {
+                $this->broker()->sendResetLink(
+                    $request->only('email')
+                );
+            }
             return redirect()->route('user.index')->with('message', 'you have successfully added new user');
         }else{
             return redirect()->route('user.index')->with('message', 'sorry, you have unsuccessfully added new user');
