@@ -61,6 +61,9 @@
             span.offday:before{
                 background-color: #1565c0;
             }
+            .text-center{
+                text-align: center;
+            }
         </style>
         <style type="text/css" media="print">
             @media print {
