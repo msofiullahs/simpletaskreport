@@ -82,7 +82,10 @@
         </style>
     </head>
     <body>
-        <h2 class="text-center">{{\Carbon\Carbon::parse(request()->columns[0]['search']['value'])->format('F Y')}}</h2>
+        @php
+            dd(\Carbon\Carbon::parse(request()->columns[0]['search']['value'])->format('F Y'));
+        @endphp
+        {{-- <h2 class="text-center">{{Carbon\Carbon::parse(request()->columns[0]['search']['value'])->format('F Y')}}</h2> --}}
         <table class="table table-bordered table-condensed table-striped">
             @foreach($data as $row)
                 @if ($loop->first)
