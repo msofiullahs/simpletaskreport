@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 class TaskDataTable extends DataTable
 {
-    protected $printPreview = 'user.print';
+    protected $printPreview = 'task.print';
     /**
      * Build DataTable class.
      *

@@ -34,6 +34,33 @@
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
             }
+            span.weekend, span.offday{
+                padding-left: 23px;
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            span.weekend{
+                margin-right: 10px;
+            }
+
+            span.weekend:before, span.offday:before{
+                content: "";
+                width: 20px;
+                height: 20px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                left: 0;
+                position: absolute;
+            }
+
+            span.weekend:before{
+                background-color: #00695c;
+            }
+            span.offday:before{
+                background-color: #1565c0;
+            }
         </style>
         <style type="text/css" media="print">
             @media print {
@@ -81,6 +108,12 @@
                     @endif
                 </tr>
             @endforeach
+                <tr>
+                    <td colspan="6">
+                        <span class="weekend">Weekend</span>
+                        <span class="offday">National Off Day</span>
+                    </td>
+                </tr>
         </table>
     </body>
 </html>
