@@ -117,7 +117,7 @@
                     @else
                         @foreach($row as $key => $value)
                             @if ($key != 'Type')
-                            <td {{is_numeric($value) ? 'class="text-right"': ''}}>{!! $value !!}</td>
+                            <td class="{{is_numeric($value) ? 'text-right': ''}}">{!! $value !!}</td>
                             @endif
                         @endforeach
                     @endif
