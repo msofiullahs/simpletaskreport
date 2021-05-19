@@ -86,10 +86,14 @@
     </head>
     <body>
         @php
-            $dateArr = explode('-', request()->columns[0]['search']['value']);
-            $createDate = \Carbon\Carbon::createFromDate($dateArr[1], $dateArr[0], 1)->format('F Y');
+            if(!empty(request()->columns[0]['search']['value'])){
+                $dateArr = explode('-', request()->columns[0]['search']['value']);
+                $createDate = \Carbon\Carbon::createFromDate($dateArr[1], $dateArr[0], 1)->format('F Y');
+            }
         @endphp
-        <h2 class="text-center">{{$createDate}}</h2>
+        @if (!empty(request()->columns[0]['search']['value']))
+            <h2 class="text-center">{{$createDate}}</h2>
+        @endif
         <table class="table table-bordered table-condensed table-striped">
             @foreach($data as $row)
                 @if ($loop->first)
