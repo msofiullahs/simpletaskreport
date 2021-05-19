@@ -113,7 +113,7 @@
                         <td colspan="6">{!! $row['Date'] !!}</td>
                     @elseif ($row['Type'] == 'offday')
                         <td>{!! $row['Date'] !!}</td>
-                        <td colspan="5" class="text-center">{!! $row['Task'] !!}</td>
+                        <td colspan="5" class="text-center">--- {!! $row['Task'] !!} ---</td>
                     @else
                         @foreach($row as $key => $value)
                             @if ($key != 'Type')
