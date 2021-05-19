@@ -64,6 +64,9 @@
             .text-center{
                 text-align: center;
             }
+            .text-right{
+                text-align: right;
+            }
         </style>
         <style type="text/css" media="print">
             @media print {
@@ -110,11 +113,11 @@
                         <td colspan="6">{!! $row['Date'] !!}</td>
                     @elseif ($row['Type'] == 'offday')
                         <td>{!! $row['Date'] !!}</td>
-                        <td colspan="5">{!! $row['Task'] !!}</td>
+                        <td colspan="5" class="text-center">{!! $row['Task'] !!}</td>
                     @else
                         @foreach($row as $key => $value)
                             @if ($key != 'Type')
-                            <td>{!! $value !!}</td>
+                            <td {{is_number($value) ? 'class="text-right"': ''}}>{!! $value !!}</td>
                             @endif
                         @endforeach
                     @endif
