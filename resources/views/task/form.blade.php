@@ -36,7 +36,7 @@
                             <select class="form-control select2" name="reporter" id="reporter" data-placeholder="Choose reporter">
                                 <option></option>
                                 @foreach ($users as $user)
-                                    <option value="{{$user->id}}" {{(isset($task) && $task->reporter_id == $user->id) || old('reporter') == $user->id ? 'selected="selected"' : ''}}>{{$user->name}}</option>
+                                    <option value="{{$user->id}}" {{(isset($task) && $task->reporter_id == $user->id) || old('reporter') == $user->id ? 'selected=selected' : ''}}>{{$user->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -47,7 +47,7 @@
                             <select class="form-control select2" name="assignee" id="assignee" data-placeholder="Choose assignee">
                                 <option></option>
                                 @foreach ($users as $user)
-                                    <option value="{{$user->id}}" {{(isset($task) && $task->assignee_id == $user->id) || old('assignee') == $user->id ? 'selected="selected"' : ''}}>{{$user->name}}</option>
+                                    <option value="{{$user->id}}" {{(isset($task) && $task->assignee_id == $user->id) || old('assignee') == $user->id ? 'selected=selected' : ''}}>{{$user->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -68,9 +68,9 @@
                         <label for="priority" class="col-sm-2 col-form-label">Priority</label>
                         <div class="col-sm-10">
                             <select class="form-control select2" name="priority" id="priority">
-                                <option value="low" {{(isset($task) && $task->priority == 'low') || old('priority') == 'low' ? 'selected="selected"' : ''}}>Low</option>
-                                <option value="mid" {{(isset($task) && $task->priority == 'mid') || old('priority') == 'mid' ? 'selected="selected"' : ''}}>Mid</option>
-                                <option value="high" {{(isset($task) && $task->priority == 'high') || old('priority') == 'high' ? 'selected="selected"' : ''}}>High</option>
+                                <option value="low" {{(isset($task) && $task->priority == 'low') || old('priority') == 'low' ? 'selected=selected' : ''}}>Low</option>
+                                <option value="mid" {{(isset($task) && $task->priority == 'mid') || old('priority') == 'mid' ? 'selected=selected' : ''}}>Mid</option>
+                                <option value="high" {{(isset($task) && $task->priority == 'high') || old('priority') == 'high' ? 'selected=selected' : ''}}>High</option>
                             </select>
                         </div>
                     </div>
@@ -78,9 +78,9 @@
                         <label for="type" class="col-sm-2 col-form-label">Type</label>
                         <div class="col-sm-10">
                             <select class="form-control select2" name="type" id="type">
-                                <option value="task" {{(isset($task) && $task->type == 'task') || old('type') == 'task' ? 'selected="selected"' : ''}}>Task</option>
-                                <option value="weekend" {{(isset($task) && $task->type == 'weekend') || old('type') == 'weekend' ? 'selected="selected"' : ''}}>Weekend</option>
-                                <option value="offday" {{(isset($task) && $task->type == 'offday') || old('type') == 'offday' ? 'selected="selected"' : ''}}>Off Day</option>
+                                <option value="task" {{(isset($task) && $task->type == 'task') || old('type') == 'task' ? 'selected=selected' : ''}}>Task</option>
+                                <option value="weekend" {{(isset($task) && $task->type == 'weekend') || old('type') == 'weekend' ? 'selected=selected' : ''}}>Weekend</option>
+                                <option value="offday" {{(isset($task) && $task->type == 'offday') || old('type') == 'offday' ? 'selected=selected' : ''}}>Off Day</option>
                             </select>
                         </div>
                     </div>

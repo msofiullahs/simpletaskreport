@@ -35,7 +35,7 @@
                             <select class="form-control select2" name="assignee" id="assignee" data-placeholder="choose assignee" required>
                                 <option></option>
                                 @foreach ($users as $user)
-                                    <option value="{{$user->id}}" {{(isset($task) && $task->assignee_id == $user->id) || old('assignee') == $user->id ? 'selected="selected"' : ''}}>{{$user->name}}</option>
+                                    <option value="{{$user->id}}" {{(isset($task) && $task->assignee_id == $user->id) || old('assignee') == $user->id ? 'selected=selected' : ''}}>{{$user->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -44,9 +44,9 @@
                         <label for="priority" class="col-sm-2 col-form-label">Priority</label>
                         <div class="col-sm-10">
                             <select class="form-control select2" name="priority" id="priority">
-                                <option value="low" {{(isset($task) && $task->priority == 'low') || old('priority') == 'low' ? 'selected="selected"' : ''}}>Low</option>
-                                <option value="mid" {{(isset($task) && $task->priority == 'mid') || old('priority') == 'mid' ? 'selected="selected"' : ''}}>Mid</option>
-                                <option value="high" {{(isset($task) && $task->priority == 'high') || old('priority') == 'high' ? 'selected="selected"' : ''}}>High</option>
+                                <option value="low" {{(isset($task) && $task->priority == 'low') || old('priority') == 'low' ? 'selected=selected' : ''}}>Low</option>
+                                <option value="mid" {{(isset($task) && $task->priority == 'mid') || old('priority') == 'mid' ? 'selected=selected' : ''}}>Mid</option>
+                                <option value="high" {{(isset($task) && $task->priority == 'high') || old('priority') == 'high' ? 'selected=selected' : ''}}>High</option>
                             </select>
                         </div>
                     </div>

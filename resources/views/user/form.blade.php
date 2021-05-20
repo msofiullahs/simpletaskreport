@@ -38,9 +38,9 @@
                         <label for="role" class="col-sm-2 col-form-label">Role</label>
                         <div class="col-sm-10">
                             <select class="form-control select2" name="role" id="role">
-                                <option value="assignee" {{(isset($user) && $user->role == 'assignee') || old('role') == 'assignee' ? 'selected="selected"' : ''}}>Assignee</option>
-                                <option value="reporter" {{(isset($user) && $user->role == 'reporter') || old('role') == 'reporter' ? 'selected="selected"' : ''}}>Reporter</option>
-                                <option value="superadmin" {{(isset($user) && $user->role == 'superadmin') || old('role') == 'superadmin' ? 'selected="selected"' : ''}}>Superadmin</option>
+                                <option value="assignee" {{(isset($user) && $user->role == 'assignee') || old('role') == 'assignee' ? 'selected=selected' : ''}}>Assignee</option>
+                                <option value="reporter" {{(isset($user) && $user->role == 'reporter') || old('role') == 'reporter' ? 'selected=selected' : ''}}>Reporter</option>
+                                <option value="superadmin" {{(isset($user) && $user->role == 'superadmin') || old('role') == 'superadmin' ? 'selected=selected' : ''}}>Superadmin</option>
                             </select>
                         </div>
                     </div>
