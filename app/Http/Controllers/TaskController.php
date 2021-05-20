@@ -103,6 +103,7 @@ class TaskController extends Controller
         $task->hours = $request->hours;
         $task->reporter_id = $request->reporter;
         $task->assignee_id = $request->assignee;
+        $task->priority = $request->priority;
         $task->type = $request->type;
 
         if ($task->save()) {
